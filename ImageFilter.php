@@ -11,8 +11,7 @@ $wgExtensionCredits['other'][] = array(
 	'url' => 'http://www.mediawiki.org/wiki/Extension:ImageFilter'
 );
 
-$wgImageFilterIP = dirname( __FILE__ );
-$wgExtensionMessagesFiles['ImageFilter'] = "$wgImageFilterIP/ImageFilter.i18n.php";
+$wgMessagesDirs['ImageFilter'] = __DIR__ . '/i18n';
 
 $wgHooks['PageRenderingHash'][] = 'ImageFilterHash';
 $wgHooks['ImageBeforeProduceHTML'][] = 'ImageFilterProduceHTML';
