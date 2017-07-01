@@ -1,22 +1,14 @@
 <?php
 
-if ( !defined( 'MEDIAWIKI' ) ) {
-	exit;
+if ( function_exists( 'wfLoadExtension' ) ) {
+	wfLoadExtension( 'ImageFilter' );
+	// Keep i18n globals so mergeMessageFileList.php doesn't break
+	$wgMessagesDirs['ImageFilter'] = __DIR__ . '/i18n';
+	wfWarn(
+		'Deprecated PHP entry point used for ImageFilter extension. Please use wfLoadExtension instead, ' .
+		'see https://www.mediawiki.org/wiki/Extension_registration for more details.'
+	);
+	return true;
+} else {
+	die( 'This version of the ImageFilter extension requires MediaWiki 1.25+' );
 }
-
-$wgExtensionCredits['other'][] = array(
-	'name' => 'ImageFilter',
-	'license-name' => 'GPL-2.0+',
-	'author' => '[https://mediawiki.org/wiki/User:Nx Nx]',
-	'descriptionmsg' => 'imagefilter-desc',
-	'url' => 'https://www.mediawiki.org/wiki/Extension:ImageFilter'
-);
-
-$wgMessagesDirs['ImageFilter'] = __DIR__ . '/i18n';
-
-$wgAutoloadClasses['ImageFilter'] = __DIR__ . '/ImageFilter.class.php';
-
-$wgHooks['PageRenderingHash'][] = 'ImageFilter::onPageRenderingHash';
-$wgHooks['ImageBeforeProduceHTML'][] = 'ImageFilter::onImageBeforeProduceHTML';
-$wgHooks['PageContentSaveComplete'][] = 'ImageFilter::onPageContentSaveComplete';
-$wgHooks['GetPreferences'][] = 'ImageFilter::onGetPreferences';
