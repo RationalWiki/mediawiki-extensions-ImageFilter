@@ -6,9 +6,10 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 $wgExtensionCredits['other'][] = array(
 	'name' => 'ImageFilter',
-	'author' => '[http://mediawiki.org/wiki/User:Nx Nx]',
-	'description' => 'Image filter',
-	'url' => 'http://www.mediawiki.org/wiki/Extension:ImageFilter'
+	'license-name' => 'GPL-2.0+',
+	'author' => '[https://mediawiki.org/wiki/User:Nx Nx]',
+	'descriptionmsg' => 'imagefilter-desc',
+	'url' => 'https://www.mediawiki.org/wiki/Extension:ImageFilter'
 );
 
 $wgMessagesDirs['ImageFilter'] = __DIR__ . '/i18n';
