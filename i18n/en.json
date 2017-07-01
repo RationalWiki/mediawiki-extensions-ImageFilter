@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"imagefilter-desc": "Prevents specific images tagged as Not Safe for Work (NSFW) from being rendered inline",
+	"tog-displayfiltered": "Display filtered images",
+	"nsfw-warning": "<sup>Warning: NSFW Image!</sup>"
+}
