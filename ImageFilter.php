@@ -18,5 +18,5 @@ $wgAutoloadClasses['ImageFilter'] = __DIR__ . '/ImageFilter.class.php';
 
 $wgHooks['PageRenderingHash'][] = 'ImageFilter::onPageRenderingHash';
 $wgHooks['ImageBeforeProduceHTML'][] = 'ImageFilter::onImageBeforeProduceHTML';
-$wgHooks['ArticleSaveComplete'][] = 'ImageFilter::onArticleSaveComplete';
+$wgHooks['PageContentSaveComplete'][] = 'ImageFilter::onPageContentSaveComplete';
 $wgHooks['GetPreferences'][] = 'ImageFilter::onGetPreferences';

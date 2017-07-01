@@ -12,9 +12,8 @@ class ImageFilter {
 		return true;
 	}
 
-	public static function onPageRenderingHash( $hash ) {
-		global $wgUser;
-		$hash .= '!' . ( $wgUser->getOption( 'displayfiltered' ) ? '1' : '' );
+	public static function onPageRenderingHash( &$hash, User $user, &$forOptions ) {
+		$hash .= '!' . ( $user->getOption( 'displayfiltered' ) ? '1' : '' );
 		return true;
 	}
 
@@ -50,7 +49,7 @@ class ImageFilter {
 		}
 	}
 
-	public static function onArticleSaveComplete( &$article, &$user, $text, $summary, $minoredit, $watchthis, $sectionanchor, &$flags, $revision, &$status ) {
+	public static function onPageContentSaveComplete( $article, $user, $content, $summary, $isMinor, $isWatch, $section, $flags, $revision, $status, $baseRevId ) {
 		$title = $article->getTitle();
 		// no change recorded
 		if ( $revision == null ) {
