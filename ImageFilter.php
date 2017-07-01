@@ -14,17 +14,10 @@ $wgExtensionCredits['other'][] = array(
 $wgImageFilterIP = dirname( __FILE__ );
 $wgExtensionMessagesFiles['ImageFilter'] = "$wgImageFilterIP/ImageFilter.i18n.php";
 
-$wgHooks['UserToggles'][] = 'ImageFilterToggle';
 $wgHooks['PageRenderingHash'][] = 'ImageFilterHash';
 $wgHooks['ImageBeforeProduceHTML'][] = 'ImageFilterProduceHTML';
 $wgHooks['ArticleSaveComplete'][] = 'ImageFilterUpdateCache';
 $wgHooks['GetPreferences'][] = 'ImageFilterPreferences';
-
-function ImageFilterToggle( &$extraToggles )
-{
-	$extraToggles[] = 'displayfiltered';
-	return true;
-}
 
 function ImageFilterPreferences( $user, &$preferences )
 {
